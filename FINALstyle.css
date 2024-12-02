@@ -1,0 +1,46 @@
+.box {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    width: 500px;
+    height: 400px;
+    border: 10px black solid;
+    margin: 0 auto;
+    align-items: center;
+    margin-top: 10%;
+    border-radius: 15%;
+    background-color: rgb(15, 223, 223);
+    border-color: rgb(255, 0, 76);
+    border-style:ridge;
+}
+
+button {
+border-radius: 20px;
+width: 30%;
+height: 10%;
+background-color: rgb(255, 0, 0);
+justify-content: center;
+margin-top: 30%;
+
+}
+
+h2 {
+    text-align: center;
+    margin-top: 70px;
+}
+
+.buton {
+display: flex;
+justify-self: center;
+margin-top: 10%;
+}
+
+.jogar {
+    text-align: center;
+    margin-top: 5%;
+}
+
+.titulo {
+    font-size: 40px;
+}
+
