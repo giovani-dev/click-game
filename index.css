@@ -1,0 +1,91 @@
+html,
+body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#game-screen {
+    background-image: url("./img/background.jpg");
+    background-size: 100% 100%;
+    width: 500px;
+    height: 700px;
+}
+
+#botao {
+    width: 15%;
+    height: 10%;
+    margin-left: 42.5%;
+    margin-top: 20%;
+}
+
+#nuvem-1 {
+    width: 100%;
+    display: flex;
+    justify-content: end;
+
+}
+
+#nuvem-1 img {
+    animation: movimenta-nuvem-pequena 2s infinite alternate;
+}
+
+#nuvem-2 {
+    width: 100%;
+    display: flex;
+    justify-content: start;
+}
+
+#nuvem-2 img {
+    animation: movimenta-nuvem-grande 5s infinite alternate;
+}
+
+.click {
+    animation: click-animacao 300ms;
+}
+
+.fonte-padrao {
+    font-family: "Press Start 2P", system-ui;
+    font-weight: 400;
+    font-style: normal;
+}
+
+@keyframes click-animacao {
+    from {
+        width: 13%;
+        height: 8%;
+        margin-left: 44.5%;
+        margin-top: 22%;
+    }
+
+    to {
+        width: 15%;
+        height: 10%;
+        margin-left: 42.5%;
+        margin-top: 20%;
+    }
+}
+
+@keyframes movimenta-nuvem-pequena {
+    from {
+        margin-right: 1%;
+    }
+
+    to {
+        margin-right: 10%;
+    }
+}
+
+@keyframes movimenta-nuvem-grande {
+    from {
+        margin-left: 0%;
+    }
+
+    to {
+        margin-left: 20%;
+    }
+}

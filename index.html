@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Press+Start+2P&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="./index.css">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="game-screen">
+        <span id="pontuacao" class="fonte-padrao"></span>
+        <section id="nuvem-1">
+            <img src="./img/cloud-1.png" alt="nuvem">
+        </section>
+        <section id="nuvem-2">
+            <img src="./img/cloud-2.png" alt="nuvem">
+        </section>
+        <a href="#">
+            <img id="botao" src="./img/botao-1.png" alt="botao">
+        </a>
+    </div>
+
+    <script type="text/javascript">
+        let pontuacao = 0;
+        $("#pontucao").text.apply(pontuacao)
+        $("#botao").on("click", (event) => {
+            pontuacao += 1;
+            $("#pontucao").text = pontuacao;
+            event.currentTarget.classList.remove("click")
+            void event.currentTarget.offsetWidth
+            event.currentTarget.classList.add("click")
+        })
+    </script>
+</body>
+
+</html>
