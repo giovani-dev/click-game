@@ -46,44 +46,44 @@
 
     <script type="text/javascript">
         let pontuacao = 0;
-        let multiplicador = 0;
+        let multiplicador = 1;
         let click = 1;
         let contador = 0;
         let jogoIniciou = false;
         let multiplicadorJob;
-        const MAX_PONTOS = 10;
+        const MAX_PONTOS = 500;
 
         $("#pontuacao").text(pontuacao);
         $("#multiplicador").text(`x${multiplicador}`);
 
         function pontua() {
-            pontuacao += click;
+            pontuacao += click * multiplicador;
             if (pontuacao >= MAX_PONTOS) {
                 finaliza();
             }
             contador += 1;
-            if (contador >= 10) {
+            if (contador >= 15) {
                 multiplicador += 1;
                 contador = 0;
             }
         }
 
         function finaliza() {
-            clearInterval(multiplicadorJob);
+            // clearInterval(multiplicadorJob);
             jogoIniciou = false;
             document.getElementById("fim-jogo").style.display = "flex";
         }
 
-        multiplicadorJob = setInterval(() => {
-            $("#multiplicador").text(`x${multiplicador}`);
-            if (multiplicador > 0) {
-                for (let i = 1; i <= multiplicador; i++) {
-                    pontua();
-                }
-                $("#pontuacao").text(pontuacao);
-                $("#multiplicador").text(`x${multiplicador}`);
-            }
-        }, 1000);
+        // multiplicadorJob = setInterval(() => {
+        //     $("#multiplicador").text(`x${multiplicador}`);
+        //     if (multiplicador > 0) {
+        //         for (let i = 1; i <= multiplicador; i++) {
+        //             pontua();
+        //         }
+        //         $("#pontuacao").text(pontuacao);
+        //         $("#multiplicador").text(`x${multiplicador}`);
+        //     }
+        // }, 1000);
 
         $("#botao").on("click", (event) => {
             pontua();
