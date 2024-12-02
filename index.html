@@ -16,8 +16,22 @@
 </head>
 
 <body>
-    <div id="game-screen">
+    <div id="fim-jogo">
+        <span class="fonte-padrao" style="color: white;">Parabéns, você ganhou!!</span>
+        <br><br>
+        <span class="fonte-padrao" style="color: white;">Pressione ESPAÇO para jogar novamente</span>
+
+    </div>
+    <div id="inicio-jogo">
+        <span class="fonte-padrao" style="color: white;">Pressione ESPAÇO para jogar</span>
+    </div>
+    <div id="placar">
+        <span class="fonte-padrao">Pontuação</span>
         <span id="pontuacao" class="fonte-padrao"></span>
+        <span class="fonte-padrao">Multiplicador</span>
+        <span id="multiplicador" class="fonte-padrao"></span>
+    </div>
+    <div id="game-screen">
         <section id="nuvem-1">
             <img src="./img/cloud-1.png" alt="nuvem">
         </section>
@@ -27,17 +41,75 @@
         <a href="#">
             <img id="botao" src="./img/botao-1.png" alt="botao">
         </a>
+        <img src="img/mario.gif" class="mario">
     </div>
 
     <script type="text/javascript">
         let pontuacao = 0;
-        $("#pontucao").text.apply(pontuacao)
+        let multiplicador = 0;
+        let click = 1;
+        let contador = 0;
+        let jogoIniciou = false;
+        let multiplicadorJob;
+        const MAX_PONTOS = 10;
+
+        $("#pontuacao").text(pontuacao);
+        $("#multiplicador").text(`x${multiplicador}`);
+
+        function pontua() {
+            pontuacao += click;
+            if (pontuacao >= MAX_PONTOS) {
+                finaliza();
+            }
+            contador += 1;
+            if (contador >= 10) {
+                multiplicador += 1;
+                contador = 0;
+            }
+        }
+
+        function finaliza() {
+            clearInterval(multiplicadorJob);
+            jogoIniciou = false;
+            document.getElementById("fim-jogo").style.display = "flex";
+        }
+
+        multiplicadorJob = setInterval(() => {
+            $("#multiplicador").text(`x${multiplicador}`);
+            if (multiplicador > 0) {
+                for (let i = 1; i <= multiplicador; i++) {
+                    pontua();
+                }
+                $("#pontuacao").text(pontuacao);
+                $("#multiplicador").text(`x${multiplicador}`);
+            }
+        }, 1000);
+
         $("#botao").on("click", (event) => {
-            pontuacao += 1;
-            $("#pontucao").text = pontuacao;
-            event.currentTarget.classList.remove("click")
-            void event.currentTarget.offsetWidth
-            event.currentTarget.classList.add("click")
+            pontua();
+            $("#pontuacao").text(pontuacao);
+            $("#multiplicador").text(`x${multiplicador}`);
+            event.currentTarget.classList.remove("click");
+            void event.currentTarget.offsetWidth;
+            event.currentTarget.classList.add("click");
+        })
+
+        document.addEventListener("keypress", (key) => {
+            console.log(key.code)
+            console.log(jogoIniciou)
+            if (key.code == "Space" && !jogoIniciou) {
+                let fim = document.getElementById("fim-jogo");
+                let inicio = document.getElementById("inicio-jogo");
+                if (fim.style.display == "flex") {
+                    fim.style.display = "none"
+                    pontuacao = 0;
+                    multiplicador = 0
+                    $("#pontuacao").text(pontuacao);
+                    $("#multiplicador").text(`x${multiplicador}`);
+                }
+                document.getElementById("inicio-jogo").style.display = "none";
+            }
+            console.log(key)
         })
     </script>
 </body>

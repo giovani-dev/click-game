@@ -7,6 +7,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 }
 
 #game-screen {
@@ -14,6 +15,38 @@ body {
     background-size: 100% 100%;
     width: 500px;
     height: 700px;
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+}
+
+#fim-jogo {
+    width: 500px;
+    height: 780px;
+    background-color: hwb(0 0% 100% / 0.719);
+    position: fixed;
+    display: none;
+    /* display: flex; */
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin: 0 auto;
+    z-index: 10;
+    text-align: center;
+}
+
+#inicio-jogo {
+    width: 500px;
+    height: 780px;
+    background-color: hwb(0 0% 100% / 0.719);
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    z-index: 10;
+    text-align: center;
+
 }
 
 #botao {
@@ -52,6 +85,38 @@ body {
     font-family: "Press Start 2P", system-ui;
     font-weight: 400;
     font-style: normal;
+}
+
+#placar {
+    background-color: #5D94F9;
+    width: 500px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 15px;
+    color: white
+}
+
+#placar span {
+    margin-top: 15px;
+    margin-left: 15px;
+}
+
+.mario {
+    width: 150px;
+    position: absolute;
+    bottom: 0;
+    margin-bottom: 17%;
+    animation: mario-animation 2s infinite linear;
+}
+
+@keyframes mario-animation {
+    from {
+        left: -30%;
+    }
+
+    to {
+        left: 110%;
+    }
 }
 
 @keyframes click-animacao {

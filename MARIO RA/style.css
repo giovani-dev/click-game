@@ -1,10 +1,10 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-.game-board{
+.game-board {
     width: 80%;
     height: 500px;
     border: 1px solid#333;
@@ -12,17 +12,20 @@
     position: relative;
     overflow: hidden;
 }
-.mario{
+
+.mario {
     width: 150px;
     position: absolute;
     bottom: 0;
     animation: mario-animation 2s infinite linear;
 }
-@keyframes mario-animation{
-    from{
+
+@keyframes mario-animation {
+    from {
         left: -20%;
     }
-    to{
-       left: 100%; 
+
+    to {
+        left: 100%;
     }
 }
